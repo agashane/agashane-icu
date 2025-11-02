@@ -1,8 +1,8 @@
 {
-  "name": "my-qwik-basic-starter",
-  "description": "Demo app with sample routes",
+  "name": "agashane",
+  "description": "Agashane blog",
   "engines": {
-    "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
+    "bun": ">= 1.1.33"
   },
   "engines-annotation": "Mostly required by sharp which needs a Node-API v9 compatible runtime",
   "private": true,
@@ -26,23 +26,23 @@
     "qwik": "qwik"
   },
   "devDependencies": {
-    "@builder.io/qwik": "^1.17.0",
-    "@builder.io/qwik-city": "^1.17.0",
+    "@builder.io/qwik": "^1.17.1",
+    "@builder.io/qwik-city": "^1.17.1",
     "@builder.io/vite-plugin-macro": "~0.0.7",
     "@eslint/js": "latest",
     "@pandacss/dev": "^0.54.0",
     "@types/node": "20.19.0",
     "eslint": "9.32.0",
-    "eslint-plugin-qwik": "^1.17.0",
+    "eslint-plugin-qwik": "^1.17.1",
     "globals": "16.3.0",
     "prettier": "3.6.2",
     "typescript": "5.4.5",
     "typescript-eslint": "8.38.0",
     "typescript-plugin-css-modules": "latest",
-    "undici": "*",
+    "undici": "^7.16.0",
     "vite": "7.1.7",
-    "vite-tsconfig-paths": "^4.2.1",
-    "wrangler": "^3.0.0"
+    "vite-tsconfig-paths": "^4.3.2",
+    "wrangler": "^3.114.15"
   },
   "dependencies": {
     "@fontsource-variable/hanken-grotesk": "^5.2.8"
