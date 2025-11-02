@@ -9,7 +9,7 @@ export default component$(() => {
 		<Center minH="100vh" minW="100vw" p="4">
 			<VStack rowGap="4" alignItems="flex-start">
 				<h1>Hi ! I'm Glorieux Lukama</h1>
-				<p>
+				<p class={css({ lineHeight: "relaxed" })}>
 					I'm a web developer focusing on building e-commerce solutions with
 					React Router V7, Sveltekit and Medusajs.
 				</p>

@@ -40,5 +40,8 @@
     "undici": "*",
     "vite": "7.1.7",
     "vite-tsconfig-paths": "^4.2.1"
+  },
+  "dependencies": {
+    "@fontsource-variable/hanken-grotesk": "^5.2.8"
   }
 }
