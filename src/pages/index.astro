@@ -1,17 +1,14 @@
 ---
+import {getCollection} from "astro:content"
+import SiteLayout from "@/layouts/site.layout.astro";
+import {css} from "styled-system/css"
 
+const posts = await getCollection("blog");
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<SiteLayout>
+		<h1 class={css({ textStyle: "3xl", color: "amber.500"})}>Homepage</h1>
+		<div>
+			{posts.map(post => <h1>{post.data.title}</h1>)}
+		</div>
+</SiteLayout>
