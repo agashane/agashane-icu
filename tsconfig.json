@@ -6,6 +6,11 @@
     "paths": {
       "@/*": ["./src/*"],
       "styled-system/*": ["./styled-system/*"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ]
   }
 }

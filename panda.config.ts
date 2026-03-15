@@ -12,7 +12,19 @@ export default defineConfig({
 
 	// Useful for theme customization
 	theme: {
-		extend: {},
+		extend: {
+			tokens: {
+				fonts: {
+					inclusiveSans: { value: "var(--font-inclusive-sans), sans-serif" },
+				},
+			},
+		},
+	},
+
+	globalCss: {
+		html: {
+			"--global-font-body": "var(--font-inclusive-sans), sans-serif",
+		},
 	},
 
 	// The output directory for your css system

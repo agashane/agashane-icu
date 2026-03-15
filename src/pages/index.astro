@@ -7,8 +7,8 @@ const posts = await getCollection("blog");
 ---
 
 <SiteLayout>
-		<h1 class={css({ textStyle: "3xl", color: "amber.500"})}>Homepage</h1>
+		<h1 class={css({ textStyle: "3xl", color: "amber.500", fontWeight: "bold"})}>Homepage with oq0</h1>
 		<div>
-			{posts.map(post => <h1>{post.data.title}</h1>)}
+			{posts.map(post => <h1 class={css({ fontWeight: "semibold"})}>{post.data.title}</h1>)}
 		</div>
 </SiteLayout>
