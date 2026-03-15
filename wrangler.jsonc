@@ -1,8 +1,3 @@
 {
-  "name": "agashane-icu",
-  "compatibility_flags": [
-    "nodejs_compat",
-    "disable_nodejs_process_v2"
-  ],
-  "pages_build_output_dir": "./dist"
+  "name": "agashane-icu"
 }
