@@ -1,9 +1,10 @@
 // @ts-check
-import { defineConfig, envField, fontProviders } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
+  trailingSlash: "never",
   adapter: cloudflare(),
   fonts: [
     {
@@ -16,8 +17,5 @@ export default defineConfig({
   i18n: {
     locales: ["en", "fr"],
     defaultLocale: "en",
-    routing: {
-      prefixDefaultLocale: false,
-    },
   },
 });

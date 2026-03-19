@@ -1,0 +1,29 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n"
+import { hstack } from "styled-system/patterns"
+
+const languagesMenus = [
+  {
+    path: "/fr",
+    label: "FR"
+  },
+  {
+    path: "/",
+    label: "EN"
+  }
+]
+
+const menus = [
+  { path: "/contact", label: "Contact"}
+]
+
+const changeLocale = languagesMenus.find(menu => menu.label.toLocaleLowerCase() !== Astro.currentLocale)
+---
+
+<header>
+    <h1>Nav header</h1>
+    <nav class={hstack()}>
+        {menus.map(menu => <a href={getRelativeLocaleUrl(Astro.currentLocale!, menu.path)}>{menu.label}</a>)}
+        <a href={changeLocale?.path}>{changeLocale?.label}</a>
+    </nav>
+</header>

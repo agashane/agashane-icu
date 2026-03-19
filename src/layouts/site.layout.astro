@@ -1,6 +1,7 @@
 ---
 import {Font} from "astro:assets"
 import "../index.css"
+import { NavHeader } from "@/lib/components/sections"
 import { container } from "styled-system/patterns"
 import { css } from "styled-system/css"
 ---
@@ -19,6 +20,7 @@ import { css } from "styled-system/css"
   mx: "auto",
 
 })}>
+    <NavHeader />
   <slot />
 </main>
 	</body>
