@@ -1,6 +1,8 @@
 ---
 import {Font} from "astro:assets"
 import "../index.css"
+import { container } from "styled-system/patterns"
+import { css } from "styled-system/css"
 ---
 <html lang="en">
 	<head>
@@ -12,9 +14,11 @@ import "../index.css"
 		<Font cssVariable="--font-inclusive-sans" preload />
 		<title>Astro</title>
 	</head>
-	<body>
-<main>
-<h1>Website</h1>
+	<body class={css({ color: "fg"})}>
+<main class={container({
+  mx: "auto",
+
+})}>
   <slot />
 </main>
 	</body>

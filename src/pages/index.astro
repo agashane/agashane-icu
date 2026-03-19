@@ -2,12 +2,16 @@
 import {getCollection} from "astro:content"
 import SiteLayout from "@/layouts/site.layout.astro";
 import {css} from "styled-system/css"
-
+import { HomeHeader } from "@/lib/components/sections";
 const posts = await getCollection("blog");
+
 ---
 
 <SiteLayout>
-		<h1 class={css({ textStyle: "3xl", color: "amber.500", fontWeight: "bold"})}>Homepage with oq0</h1>
+    <HomeHeader
+        title="Hi ! I'm Glorieux Lukama..."
+        summary="Coding and crafting remain my anchors, even in a recurring war zone. I’m a persistent builder currently tackling the hurdles of entrepreneurship. If you value resilience and hard work, feel free to get in touch."
+    />
 		<div>
 			{posts.map(post => <h1 class={css({ fontWeight: "semibold"})}>{post.data.title}</h1>)}
 		</div>

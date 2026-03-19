@@ -1,0 +1,27 @@
+---
+import { css } from 'styled-system/css';
+import { vstack } from 'styled-system/patterns';
+
+interface Props {
+  title: string;
+  summary: string;
+}
+
+const { title, summary} = Astro.props
+---
+<header class={vstack({
+  justifyContent: "center",
+  gap: "6",
+  py: { mdDown: "16", md: "36"},
+  w: { mdDown: "full", md: "2xl"}
+})}>
+    <h1 class={css({
+      textStyle: { mdDown: "xl", md: "2xl"},
+      fontWeight: "bold",
+      w: "full"
+    })}>{title}</h1>
+    <p class={css({
+      color: "fg.muted",
+      fontSize: { mdDown: "lg", md: "xl" }
+    })}>{summary}</p>
+</header>
