@@ -1,6 +1,10 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import { css } from 'styled-system/css';
-import { vstack } from 'styled-system/patterns';
+import { hstack, vstack } from 'styled-system/patterns';
+import Github from "@/assets/brand-github.svg"
+import ArrowUpRight from "@/assets/arrow-up-right.svg"
+import {Button} from "@/lib/components/ui/button"
 
 interface Props {
   title: string;
@@ -24,4 +28,11 @@ const { title, summary} = Astro.props
       color: "fg.muted",
       fontSize: { mdDown: "lg", md: "xl" }
     })}>{summary}</p>
+
+    <div class={hstack({ gap: "4", justify: "start", w: "full"})}>
+        <Button href={getRelativeLocaleUrl(Astro.currentLocale!, "/contact")}>Get in touch <ArrowUpRight /></Button>
+        <Button href="https://github.com/agashane" target="_blank">
+            <Github />
+        </Button>
+    </div>
 </header>

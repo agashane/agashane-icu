@@ -5,7 +5,7 @@ import { NavHeader } from "@/lib/components/sections"
 import { container } from "styled-system/patterns"
 import { css } from "styled-system/css"
 ---
-<html lang="en">
+<html lang={Astro.currentLocale ?? "en"}>
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
