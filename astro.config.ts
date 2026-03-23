@@ -22,4 +22,7 @@ export default defineConfig({
       redirectToDefaultLocale: true,
     },
   },
+  redirects: {
+    "/": "/en",
+  },
 });
