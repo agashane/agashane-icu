@@ -1,0 +1,36 @@
+---
+import SiteLayout from "@/layouts/site.layout.astro"
+import { getContent } from "@/lib/api/content";
+import type { GetStaticPaths } from "astro";
+import { render } from "astro:content";
+import { cx } from "styled-system/css";
+import { css } from "styled-system/css";
+import { vstack } from "styled-system/patterns";
+import { prose } from "styled-system/recipes";
+
+export const getStaticPaths = (async () => {
+    const currentLocale = "en"
+
+    const posts = await getContent(currentLocale);
+
+	return posts.map((post) => ({ params: { slug: post.id.substring(post.id.indexOf("/") + 1) }, props: { post} }));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const { Content} = await render(post)
+---
+<SiteLayout>
+    <div class={vstack({
+      gap: { mdDown: "8", md: "16"}
+    })}>
+    <h1 class={css({
+      textStyle: {mdDown: "xl", md: "3xl"},
+      fontWeight: "bold"
+    })}>{post.data.title}</h1>
+    <article class={cx(css({
+      w: { mdDown: "full", md: "container"}
+    }), prose({ size: { mdDown: "base", md: "lg"}}))}>
+        <Content />
+    </article>
+    </div>
+</SiteLayout>

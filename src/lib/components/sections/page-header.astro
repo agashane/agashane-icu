@@ -1,0 +1,29 @@
+---
+import { css } from 'styled-system/css';
+import { vstack } from 'styled-system/patterns';
+
+interface Props {
+  heading: string;
+  subheading: string;
+}
+
+const { heading, subheading } = Astro.props;
+---
+
+<header class={vstack({
+  justifyContent: "center",
+  py: { mdDown: "16", md: "36"},
+  w: { mdDown: "full", md: "2xl"}
+})}>
+    <p class={css({
+      w: "full",
+      color: "fg.muted",
+      fontSize: { mdDown: "sm", md: "base"},
+      textTransform: "uppercase"
+    })}>{subheading}</p>
+    <h1 class={css({
+      textStyle: { mdDown: "xl", md: "2xl"},
+      fontWeight: "bold",
+      w: "full"
+    })}>{heading}</h1>
+</header>

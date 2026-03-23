@@ -1,0 +1,33 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { css, cx } from 'styled-system/css';
+import { linkOverlay } from 'styled-system/patterns';
+
+interface Props {
+	post: CollectionEntry<"blog">
+}
+
+const {post} = Astro.props
+const slug = post.id.substring(post.id.indexOf("/") + 1)
+---
+
+<div
+    class={css({
+      pos: "relative",
+      p: "4",
+      _hover: {
+        bgColor: "slate.50"
+      }
+    })}
+>
+    <a
+    href={getRelativeLocaleUrl(Astro.currentLocale!, `/blog/${slug}`)}
+    class={cx(linkOverlay(),)}
+    >
+{post.data.title}
+</a>
+<div>
+    <p>{post.data.updatedAt.toLocaleDateString(Astro.currentLocale)}</p>
+</div>
+</div>

@@ -1,0 +1,27 @@
+---
+import SiteLayout from "@/layouts/site.layout.astro";
+import { getContent,  } from "@/lib/api/content";
+import { PageHeader } from "@/lib/components/sections";
+import { Badge } from "@/lib/components/ui/badge";
+import { PostCard } from "@/lib/components/ui/post-card";
+
+const posts = await getContent(Astro.currentLocale)
+const locale = Astro.currentLocale as "en" | "fr";
+---
+<SiteLayout>
+    <!-- Page header-->
+    <PageHeader
+        subheading="blog"
+        heading="Find useful tips & tricks, ideas or experiences I've learnt from..."
+    />
+
+    <!-- Display tags -->
+    <section>
+
+    </section>
+
+    <!-- Display posts-->
+    <section>
+        {posts.map(post => <PostCard post={post} />)}
+    </section>
+</SiteLayout>

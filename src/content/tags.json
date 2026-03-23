@@ -1,0 +1,35 @@
+{
+  "tips": {
+    "slug": "tips",
+    "label": {
+      "en": "Tips & Tricks",
+      "fr": "Astuces"
+    },
+    "description": {
+      "en": "",
+      "fr": ""
+    }
+  },
+  "pandacss": {
+    "slug": "pandacss",
+    "label": {
+      "en": "PandaCSS",
+      "fr": "PandaCSS"
+    },
+    "description": {
+      "en": "",
+      "fr": ""
+    }
+  },
+  "astrojs": {
+    "slug": "astrojs",
+    "label": {
+      "en": "AstroJS",
+      "fr": "AstroJS"
+    },
+    "description": {
+      "en": "",
+      "fr": ""
+    }
+  }
+}

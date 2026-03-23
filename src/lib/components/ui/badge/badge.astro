@@ -1,0 +1,14 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { cx } from 'styled-system/css';
+import {badgeRecipe} from "./recipe"
+
+interface Props extends HTMLAttributes<"a"> {
+
+}
+
+const { href, class: className, ...restProps} = Astro.props
+---
+<a href={href} class={cx(badgeRecipe(), className)} {...restProps}>
+    <slot />
+</a>
