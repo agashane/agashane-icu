@@ -1,10 +1,10 @@
 // @ts-check
 import { defineConfig, fontProviders } from "astro/config";
 import cloudflare from "@astrojs/cloudflare";
+import { remarkReadingTime } from "./src/lib/reading-time";
 
 // https://astro.build/config
 export default defineConfig({
-  trailingSlash: "never",
   adapter: cloudflare(),
   fonts: [
     {
@@ -24,5 +24,8 @@ export default defineConfig({
   },
   redirects: {
     "/": "/en",
+  },
+  markdown: {
+    remarkPlugins: [remarkReadingTime],
   },
 });

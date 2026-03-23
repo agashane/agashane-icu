@@ -1,6 +1,10 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n"
+import { Image } from "astro:assets"
 import { hstack } from "styled-system/patterns"
+import Logo from "@/assets/agashane.png"
+import { css } from "styled-system/css"
+import { buttonRecipe } from "../ui/button/recipe"
 
 const languagesMenus = [
   {
@@ -14,16 +18,32 @@ const languagesMenus = [
 ]
 
 const menus = [
-  { path: "/contact", label: "Contact"}
+  { path: "/contact", label: "Contact"},
+  { path: "/blog", label: "Blog" }
 ]
 
 const changeLocale = languagesMenus.find(menu => menu.label.toLocaleLowerCase() !== Astro.currentLocale)
 ---
 
-<header>
-    <h1>Nav header</h1>
-    <nav class={hstack()}>
-        {menus.map(menu => <a href={getRelativeLocaleUrl(Astro.currentLocale!, menu.path)}>{menu.label}</a>)}
-        <a href={changeLocale?.path}>{changeLocale?.label}</a>
+<header class={hstack({
+  w: "full",
+  alignItems: "center",
+  justifyContent: "space-between",
+  py: "2"
+})}>
+    <a href={getRelativeLocaleUrl(Astro.currentLocale!, "/")}>
+      <Image src={Logo} alt="Agashane" class={css({
+        w: {
+          mdDown: "24",
+          md: "32"
+        }
+      })} />
+    </a>
+    <nav class={hstack({
+      alignItems: "center",
+      gap: "1"
+    })}>
+        {menus.map(menu => <a href={getRelativeLocaleUrl(Astro.currentLocale!, menu.path)} class={buttonRecipe()}>{menu.label}</a>)}
+        <a href={changeLocale?.path} class={buttonRecipe()}>{changeLocale?.label}</a>
     </nav>
 </header>

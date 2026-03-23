@@ -5,18 +5,24 @@ export const buttonRecipe = cva({
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: "0.5rem",
+    borderRadius: "xl",
     fontWeight: "medium",
     gap: "2",
+    px: "4",
+    py: "2",
     transition: "color 0.3s ease",
   },
   variants: {
     variant: {
       primary: {
         _hover: {
-          color: "teal.700",
+          color: "slate.800",
+          bgColor: "slate.100",
         },
       },
     },
+  },
+  defaultVariants: {
+    variant: "primary",
   },
 });

@@ -17,16 +17,19 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const { post } = Astro.props;
-const { Content} = await render(post)
+const { Content, remarkPluginFrontmatter} = await render(post)
 ---
 <SiteLayout>
     <div class={vstack({
       gap: { mdDown: "8", md: "16"}
     })}>
+        <header>
     <h1 class={css({
       textStyle: {mdDown: "xl", md: "3xl"},
       fontWeight: "bold"
     })}>{post.data.title}</h1>
+    <p>{remarkPluginFrontmatter.minutesRead}</p>
+        </header>
     <article class={cx(css({
       w: { mdDown: "full", md: "container"}
     }), prose({ size: { mdDown: "base", md: "lg"}}))}>

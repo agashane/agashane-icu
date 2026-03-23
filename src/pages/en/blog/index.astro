@@ -4,6 +4,8 @@ import { getContent,  } from "@/lib/api/content";
 import { PageHeader } from "@/lib/components/sections";
 import { Badge } from "@/lib/components/ui/badge";
 import { PostCard } from "@/lib/components/ui/post-card";
+import { cx } from "styled-system/css";
+import { grid, gridItem } from "styled-system/patterns";
 
 const posts = await getContent(Astro.currentLocale)
 const locale = Astro.currentLocale as "en" | "fr";
@@ -21,7 +23,10 @@ const locale = Astro.currentLocale as "en" | "fr";
     </section>
 
     <!-- Display posts-->
-    <section>
-        {posts.map(post => <PostCard post={post} />)}
+    <section class={grid({
+      columns: { mdDown: 1, md: 3},
+      gap: "4"
+    })}>
+        {posts.map(post => <div class={gridItem()}><PostCard post={post} /></div>)}
     </section>
 </SiteLayout>

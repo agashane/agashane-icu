@@ -1,8 +1,9 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { css, cx } from 'styled-system/css';
-import { linkOverlay } from 'styled-system/patterns';
+import { hstack, linkOverlay } from 'styled-system/patterns';
 
 interface Props {
 	post: CollectionEntry<"blog">
@@ -10,24 +11,42 @@ interface Props {
 
 const {post} = Astro.props
 const slug = post.id.substring(post.id.indexOf("/") + 1)
+const {remarkPluginFrontmatter} = await render(post)
 ---
 
-<div
+<article
     class={css({
       pos: "relative",
-      p: "4",
+      px: {mdDown: "4", md: "8"},
+      py: { mdDown: "4", md: "6"},
+      spaceY: "2",
+      borderWidth: "1px",
+      borderColor: "slate.200",
+      borderRadius: "xl",
       _hover: {
-        bgColor: "slate.50"
-      }
+        bgColor: "slate.50",
+        border: "none"
+      },
     })}
 >
     <a
     href={getRelativeLocaleUrl(Astro.currentLocale!, `/blog/${slug}`)}
-    class={cx(linkOverlay(),)}
+    class={cx(linkOverlay(),css({
+      fontWeight: "semibold",
+      fontSize: { mdDown: "lg", md: "xl"},
+      color: "slate.800",
+      lineHeight: "tight"
+    }))}
     >
 {post.data.title}
 </a>
-<div>
+<div class={hstack({
+  alignItems: "center",
+  gap: "4",
+  color: "slate.600"
+
+})}>
     <p>{post.data.updatedAt.toLocaleDateString(Astro.currentLocale)}</p>
+    <p>{remarkPluginFrontmatter.minutesRead}</p>
 </div>
-</div>
+</p>
