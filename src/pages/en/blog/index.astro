@@ -2,15 +2,12 @@
 import SiteLayout from "@/layouts/site.layout.astro";
 import { getContent,  } from "@/lib/api/content";
 import { PageHeader } from "@/lib/components/sections";
-import { Badge } from "@/lib/components/ui/badge";
 import { PostCard } from "@/lib/components/ui/post-card";
-import { cx } from "styled-system/css";
 import { grid, gridItem } from "styled-system/patterns";
 
 const posts = await getContent(Astro.currentLocale)
-const locale = Astro.currentLocale as "en" | "fr";
 ---
-<SiteLayout>
+<SiteLayout title="Fullstack Developer & SaaS Builder in Bukavu, DRC | Glorieux Lukama's (@agashane) Blog" description="Technical guides on Astro, React Router, Remix, PandaCSS, Rust, AdonisJS and Medusajs. Based in Bukavu, DRC, I share insights on building high-performance web and mobile apps for a global audience.">
     <!-- Page header-->
     <PageHeader
         subheading="blog"

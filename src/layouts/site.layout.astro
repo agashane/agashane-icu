@@ -1,9 +1,17 @@
 ---
 import {Font} from "astro:assets"
+import {SEO} from "astro-seo"
 import "../index.css"
 import { NavHeader } from "@/lib/components/sections"
 import { container } from "styled-system/patterns"
 import { css } from "styled-system/css"
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description } = Astro.props as Props;
 ---
 <html lang={Astro.currentLocale ?? "en"}>
 	<head>
@@ -13,7 +21,7 @@ import { css } from "styled-system/css"
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<Font cssVariable="--font-inclusive-sans" preload />
-		<title>Astro</title>
+		<SEO title={title} description={description} />
 	</head>
 	<body class={css({ color: "fg"})}>
 <main class={container({
