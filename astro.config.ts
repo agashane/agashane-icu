@@ -36,7 +36,6 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filenameBase: "sitemap",
       i18n: {
         defaultLocale: "en",
         locales: {
