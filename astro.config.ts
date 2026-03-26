@@ -9,7 +9,9 @@ const isDev = import.meta.env.MODE === "development";
 // https://astro.build/config
 export default defineConfig({
   site: isDev ? "http://localhost:4321" : "https://agashane.icu",
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    imageService: "cloudflare-binding",
+  }),
   fonts: [
     {
       provider: fontProviders.fontsource(),
